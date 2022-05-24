@@ -1,0 +1,35 @@
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 450px;
+}
+.section-one-wrapper {
+  flex-direction: column;
+}
+.section-two-wrapper {
+  margin: 64px;
+}
+.section-three-wrapper {
+  flex-direction: column;
+  padding: 64px;
+}
+.section-four-wrapper {
+  flex-direction: column;
+}
+.skills {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin-top: 32px;
+}
+.footer {
+  flex-direction: column;
+}
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
