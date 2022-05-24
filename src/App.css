@@ -33,3 +33,17 @@ a:active {
   text-decoration: none;
   color: inherit;
 }
+@media screen and (max-width: 768px) {
+  .section {
+    padding: 32px;
+    text-align: center;
+  }
+  .section-two-wrapper {
+    margin: 0;
+  }
+  .skills {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

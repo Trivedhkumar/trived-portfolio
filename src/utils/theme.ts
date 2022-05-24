@@ -42,14 +42,14 @@ const size = {
   desktop: "2560px",
 };
 export const device = {
-  mobileS: `(min-width: ${size.mobileS})`,
-  mobileM: `(min-width: ${size.mobileM})`,
-  mobileL: `(min-width: ${size.mobileL})`,
-  tablet: `(min-width: ${size.tablet})`,
-  laptop: `(min-width: ${size.laptop})`,
-  laptopL: `(min-width: ${size.laptopL})`,
-  desktop: `(min-width: ${size.desktop})`,
-  desktopL: `(min-width: ${size.desktop})`,
+  mobileS: `(max-width: ${size.mobileS})`,
+  mobileM: `(max-width: ${size.mobileM})`,
+  mobileL: `(max-width: ${size.mobileL})`,
+  tablet: `(max-width: ${size.tablet})`,
+  laptop: `(max-width: ${size.laptop})`,
+  laptopL: `(max-width: ${size.laptopL})`,
+  desktop: `(max-width: ${size.desktop})`,
+  desktopL: `(max-width: ${size.desktop})`,
 };
 
 //Variant Headings
@@ -84,10 +84,15 @@ export const StyledHeading3 = styled.h3`
   font-size: 2em;
   font-weight: 700;
 `;
-export const StyledHeading4 = styled.h4`
+export const StyledHeading4 = styled.h4(
+  ({ responsiveMargin }: { responsiveMargin?: string }) => `
   font-size: 1.2em;
   font-weight: 700;
-`;
+  @media ${device.tablet} {
+    margin:${responsiveMargin}
+  }
+`
+);
 export const StyledHeading5 = styled.h5(
   ({
     margin,
@@ -164,8 +169,10 @@ export const StyledButton3 = styled.a(
     padding,
     color,
     onHover,
+    responsiveMargin,
   }: {
     margin?: string;
+    responsiveMargin?: string;
     padding?: string;
     color?: string;
     onHover?: string;
@@ -179,6 +186,9 @@ font-weight: 700;
 cursor: pointer;
 &:hover {
   color: ${onHover ?? ""};
+}
+@media ${device.tablet} {
+  margin:${responsiveMargin}
 }
 `
 );

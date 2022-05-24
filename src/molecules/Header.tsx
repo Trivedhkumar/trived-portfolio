@@ -10,6 +10,8 @@ const StyledHeader = styled.div`
   padding: ${spacing.r}px;
   @media ${device.tablet} {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 `;
 const StyledMenu = styled.div`
@@ -17,6 +19,11 @@ const StyledMenu = styled.div`
   align-items: center;
   flex-grow: 1;
   justify-content: space-evenly;
+  @media ${device.tablet} {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 const StyledProgradHeader = styled.div`
   flex-grow: 2;

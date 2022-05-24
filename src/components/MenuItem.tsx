@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { StyledButton3 } from "../utils/theme";
+import { StyledButton3, Theme } from "../utils/theme";
+const { spacing } = Theme;
 const MenuItem = ({ itemName, id }: { itemName: string; id: string }) => {
   /*
    * Store our anchorTarget in state
@@ -25,7 +26,11 @@ const MenuItem = ({ itemName, id }: { itemName: string; id: string }) => {
       anchorTarget.scrollIntoView({ behavior: "smooth", block: "start" });
   };
   return (
-    <StyledButton3 onClick={handleClick} href={`#${id}`}>
+    <StyledButton3
+      responsiveMargin={`${spacing.r}px auto`}
+      onClick={handleClick}
+      href={`#${id}`}
+    >
       {itemName}
     </StyledButton3>
   );

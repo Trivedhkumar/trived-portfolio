@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Header from "./molecules/Header";
 import Section from "./molecules/Section";
 import {
+  device,
   StyledBody2,
   StyledBody3,
   StyledButton2,
@@ -25,16 +26,25 @@ const StyledImage = styled.img`
   width: 300px;
   border-radius: 50%;
   margin: auto ${spacing.r}px;
+  @media ${device.tablet} {
+    display: none;
+  }
 `;
 const StyledLine = styled.hr`
   color: #fff;
   width: 400px;
+  @media ${device.tablet} {
+    width: 200px;
+  }
 `;
 const StyledContent = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   margin-left: ${spacing.xl}px;
+  @media ${device.tablet} {
+    margin: auto;
+  }
 `;
 const StyledProjects = styled.div(
   () => `
@@ -42,6 +52,10 @@ display:flex;
 width:100%;
 justify-content:space-evenly;
 align-items:center;
+@media ${device.tablet} {
+  display: flex;
+  flex-direction: column;
+}
 `
 );
 const StyledForm = styled.form(
@@ -194,7 +208,9 @@ function App() {
           <StyledHeading3>SKILLS</StyledHeading3>
           <div className="skills">
             <div>
-              <StyledHeading4>TECHNICAL SKILLS</StyledHeading4>
+              <StyledHeading4 responsiveMargin={`${spacing.r}px auto`}>
+                TECHNICAL SKILLS
+              </StyledHeading4>
               {skills.map((skill) => (
                 <SkillBar
                   key={skill.id}
@@ -204,7 +220,9 @@ function App() {
               ))}
             </div>
             <div>
-              <StyledHeading4>LANGUAGUES</StyledHeading4>
+              <StyledHeading4 responsiveMargin={`${spacing.r}px auto`}>
+                LANGUAGUES
+              </StyledHeading4>
               {langugues.map((lang) => (
                 <SkillBar key={lang.id} skill={lang.lang} value={lang.value} />
               ))}
