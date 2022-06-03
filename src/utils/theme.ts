@@ -58,7 +58,8 @@ export const StyledHeading1 = styled.h1(
 color: ${color};
 font-size: 3em;
 font-weight: 700;
-margin:${margin}
+margin:${margin};
+text-align:center;
 `
 );
 export const StyledHeading2 = styled.h2(
@@ -168,14 +169,12 @@ export const StyledButton3 = styled.a(
     margin,
     padding,
     color,
-    onHover,
     responsiveMargin,
   }: {
     margin?: string;
     responsiveMargin?: string;
     padding?: string;
     color?: string;
-    onHover?: string;
   }) => `
 margin:${margin};
 padding:${padding};
@@ -184,9 +183,6 @@ color:${color}
 font-size: 1.2em;
 font-weight: 700;
 cursor: pointer;
-&:hover {
-  color: ${onHover ?? ""};
-}
 @media ${device.tablet} {
   margin:${responsiveMargin}
 }

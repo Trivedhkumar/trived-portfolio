@@ -15,6 +15,7 @@ import {
 import "./App.css";
 import Project from "./components/Project";
 import SkillBar from "./components/SkillBar";
+import { GitHubProjects } from "./types";
 
 const { spacing, colors } = Theme;
 const StyledBody = styled.div`
@@ -78,24 +79,29 @@ margin-top:32px;
 
 `
 );
-const projectsData = [
+const projectsData: GitHubProjects = [
   {
     id: 1,
     name: "BUDGETY APP",
     description:
       "Basic Budget App to calculate and keep track of your monthly expenses and income",
+    repoLink: "https://github.com/Trivedhkumar/Budgety-App.git",
+    projectLink: "https://trivedhkumar.github.io/Budgety-App/",
   },
   {
     id: 2,
     name: "Color Game",
     description:
       "Basic color guessing game with two modes of difficulty easy and hard.",
+    repoLink: "https://github.com/Trivedhkumar/Color-Game.git",
   },
   {
     id: 3,
     name: "Web Scarping of a website",
     description:
       "A python project to scarpe the watches data on a paticular site.",
+    repoLink:
+      "https://github.com/Trivedhkumar/py-bs4-webscraping-heliostore.git",
   },
 ];
 const skills = [
@@ -174,14 +180,17 @@ function App() {
               diving deep into the full stack development and learned many
               things and looking for oppurtunity to showcase my skills .
             </StyledBody3>
-            <StyledButton2
-              href={
-                process.env.PUBLIC_URL + "assests/pdf/Trivedh Kumar Resume.pdf"
-              }
-              download="Trived Kumar Jajala Resume"
-            >
-              DOWNLOAD MY RESUME
-            </StyledButton2>
+            <div>
+              <StyledButton2
+                href={
+                  process.env.PUBLIC_URL +
+                  "assests/pdf/Trivedh Kumar Resume.pdf"
+                }
+                download="Trived Kumar Jajala Resume"
+              >
+                DOWNLOAD MY RESUME
+              </StyledButton2>
+            </div>
           </StyledContent>
         </div>
       </Section>
@@ -198,7 +207,7 @@ function App() {
           <StyledLine></StyledLine>
           <StyledProjects>
             {projectsData.map((project) => (
-              <Project project={project} />
+              <Project key={project.id} project={project} />
             ))}
           </StyledProjects>
         </div>

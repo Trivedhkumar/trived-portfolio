@@ -6,6 +6,8 @@
 }
 .section-one-wrapper {
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .section-two-wrapper {
   margin: 64px;
