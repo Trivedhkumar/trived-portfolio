@@ -150,7 +150,18 @@ color:${color}
 `
 );
 //Variant Buttons
-export const StyledButton1 = styled.button``;
+export const StyledButton1 = styled.button(
+  ({ margin }: { margin?: string }) => `
+padding: ${Theme.spacing.s}px ${Theme.spacing.s1}px;
+  background-color: ${Theme.colors.sf60};
+  color: ${Theme.colors.white};
+  font-size: 1.2em;
+  font-weight: 700;
+  border-radius: ${Theme.spacing.xs}px;
+  cursor: pointer;
+margin:${margin};
+`
+);
 export const StyledButton2 = styled.a(
   ({ margin }: { margin?: string }) => `
   padding: ${Theme.spacing.s}px ${Theme.spacing.s1}px;

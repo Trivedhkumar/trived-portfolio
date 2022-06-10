@@ -1,10 +1,13 @@
 import styled from "styled-components";
+import emailjs from "@emailjs/browser";
+
 import Header from "./molecules/Header";
 import Section from "./molecules/Section";
 import {
   device,
   StyledBody2,
   StyledBody3,
+  StyledButton1,
   StyledButton2,
   StyledHeading1,
   StyledHeading2,
@@ -15,7 +18,8 @@ import {
 import "./App.css";
 import Project from "./components/Project";
 import SkillBar from "./components/SkillBar";
-import { GitHubProjects } from "./types";
+import { langugues, projectsData, skills } from "./utils/Data";
+import { useRef } from "react";
 
 const { spacing, colors } = Theme;
 const StyledBody = styled.div`
@@ -79,76 +83,33 @@ margin-top:32px;
 
 `
 );
-const projectsData: GitHubProjects = [
-  {
-    id: 1,
-    name: "BUDGETY APP",
-    description:
-      "Basic Budget App to calculate and keep track of your monthly expenses and income",
-    repoLink: "https://github.com/Trivedhkumar/Budgety-App.git",
-    projectLink: "https://trivedhkumar.github.io/Budgety-App/",
-  },
-  {
-    id: 2,
-    name: "Color Game",
-    description:
-      "Basic color guessing game with two modes of difficulty easy and hard.",
-    repoLink: "https://github.com/Trivedhkumar/Color-Game.git",
-  },
-  {
-    id: 3,
-    name: "Web Scarping of a website",
-    description:
-      "A python project to scarpe the watches data on a paticular site.",
-    repoLink:
-      "https://github.com/Trivedhkumar/py-bs4-webscraping-heliostore.git",
-  },
-];
-const skills = [
-  {
-    id: 1,
-    skill: "HTML",
-    value: 80,
-  },
-  {
-    id: 2,
-    skill: "CSS",
-    value: 80,
-  },
-  {
-    id: 3,
-    skill: "JS",
-    value: 68,
-  },
-  {
-    id: 4,
-    skill: "PYTHON",
-    value: 68,
-  },
-  {
-    id: 5,
-    skill: "GIT",
-    value: 70,
-  },
-];
-const langugues = [
-  {
-    id: 1,
-    lang: "ENGLISH",
-    value: 80,
-  },
-  {
-    id: 2,
-    lang: "TELUGU",
-    value: 90,
-  },
-  {
-    id: 3,
-    lang: "HINDI",
-    value: 60,
-  },
-];
+
+// send the message and get a callback with an error or details of the message that was sent
+
 function App() {
+  const form = useRef<HTMLFormElement>(null);
+
+  const sendEmail = (e: any) => {
+    e.preventDefault();
+    console.log(e.target);
+
+    emailjs
+      .sendForm(
+        "service_e8gff1e",
+        "template_9jn1kpp",
+        e.target,
+        "oqHQIJiItldYJW0m7"
+      )
+      .then(
+        (result) => {
+          console.log(result);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    e.target.reset();
+  };
   return (
     <StyledBody>
       <Header />
@@ -242,34 +203,33 @@ function App() {
       <Section id="contact" color={colors.black100}>
         <div className=" section footer">
           <StyledHeading3 color={colors.white}>CONTACT</StyledHeading3>
-          <StyledForm
-            action="mailto:trivedhj@gmail.com"
-            method="POST"
-            encType="text/plain"
-          >
+          <StyledForm ref={form} onSubmit={sendEmail}>
             <StyledInput
               type={"text"}
               placeholder={"Enter your name"}
               required
-            ></StyledInput>
+              name="name"
+            />
             <StyledInput
               type={"email"}
               max={50}
               placeholder={"Enter your email"}
               required
+              name="email"
             ></StyledInput>
             <StyledMessage
               rows={6}
               placeholder="Enter your message"
               required
+              name="message"
             ></StyledMessage>
-            <StyledButton2
-              type="submit"
+            <StyledButton1
               margin={`${spacing.l}px auto`}
               color={colors.white}
+              type="submit"
             >
               Send Message
-            </StyledButton2>
+            </StyledButton1>
           </StyledForm>
         </div>
       </Section>
