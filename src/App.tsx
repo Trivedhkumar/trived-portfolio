@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import emailjs from "@emailjs/browser";
+import { useSpring, animated } from "react-spring";
 
 import Header from "./molecules/Header";
 import Section from "./molecules/Section";
@@ -83,7 +84,6 @@ margin-top:32px;
 
 `
 );
-
 // send the message and get a callback with an error or details of the message that was sent
 
 function App() {
@@ -110,51 +110,76 @@ function App() {
       );
     e.target.reset();
   };
+  const headingProps = useSpring({
+    to: { opacity: 1, marginTop: 0 },
+    from: { opacity: 0, marginTop: -100 },
+    delay: 100,
+  });
+  const sectionOneProps = useSpring({
+    from: { transform: "translate(-1200px,0)" },
+    to: { transform: "translate(0,0)" },
+    delay: 100,
+  });
+  const sectionTwoProps = useSpring({
+    from: { transform: "translate(1200px,0)" },
+    to: { transform: "translate(0,0)" },
+    delay: 100,
+  });
   return (
     <StyledBody>
-      <Header />
-      <Section id="home" color={colors.black100}>
-        <div className="section section-one-wrapper">
-          <StyledHeading3 color={colors.white}>I BELIEVE IN</StyledHeading3>
-          <StyledHeading1 margin={`${spacing.xl}px auto`} color={colors.white}>
-            EAT (); SLEEP (); CODE (); REPEAT();
-          </StyledHeading1>
-        </div>
-      </Section>
-      <Section id="bio">
-        <div className=" section section-two-wrapper">
-          <StyledImage
-            src={process.env.PUBLIC_URL + "./assests/images/profile.jpeg"}
-          ></StyledImage>
-          <StyledContent>
-            <StyledHeading2>TRIVEDH KUMAR JAJALA</StyledHeading2>
-            <StyledBody3 margin={`${spacing.r}px auto`}>
-              I'm a passionate Engineer with a degree in Computer Science &
-              Engineering. Basically I came to know about computers in my first
-              year of B.tech and got my first laptop in my second year that's
-              when I started experimenting on the things.
-            </StyledBody3>
-            <StyledBody3 margin={`${spacing.r}px auto`}>
-              I,explored through various langugues and these frontend tech(HTML
-              CSS JS) caught my attention,with them we can literally control the
-              content in websites which was amazing to my eyes then. So I stared
-              diving deep into the full stack development and learned many
-              things and looking for oppurtunity to showcase my skills .
-            </StyledBody3>
-            <div>
-              <StyledButton2
-                href={
-                  process.env.PUBLIC_URL +
-                  "assests/pdf/Trivedh Kumar Resume.pdf"
-                }
-                download="Trived Kumar Jajala Resume"
-              >
-                DOWNLOAD MY RESUME
-              </StyledButton2>
-            </div>
-          </StyledContent>
-        </div>
-      </Section>
+      <animated.div style={headingProps}>
+        <Header />
+      </animated.div>
+      <animated.div style={sectionOneProps}>
+        <Section id="home" color={colors.black100}>
+          <div className="section section-one-wrapper">
+            <StyledHeading3 color={colors.white}>I BELIEVE IN</StyledHeading3>
+            <StyledHeading1
+              margin={`${spacing.xl}px auto`}
+              color={colors.white}
+            >
+              EAT (); SLEEP (); CODE (); REPEAT();
+            </StyledHeading1>
+          </div>
+        </Section>
+      </animated.div>
+      <animated.div style={sectionTwoProps}>
+        <Section id="bio">
+          <div className=" section section-two-wrapper">
+            <StyledImage
+              src={process.env.PUBLIC_URL + "./assests/images/profile.jpeg"}
+            ></StyledImage>
+            <StyledContent>
+              <StyledHeading2>TRIVEDH KUMAR JAJALA</StyledHeading2>
+              <StyledBody3 margin={`${spacing.r}px auto`}>
+                I'm a passionate Engineer with a degree in Computer Science &
+                Engineering. Basically I came to know about computers in my
+                first year of B.tech and got my first laptop in my second year
+                that's when I started experimenting on the things.
+              </StyledBody3>
+              <StyledBody3 margin={`${spacing.r}px auto`}>
+                I,explored through various langugues and these frontend
+                tech(HTML CSS JS) caught my attention,with them we can literally
+                control the content in websites which was amazing to my eyes
+                then. So I stared diving deep into the full stack development
+                and learned many things and looking for oppurtunity to showcase
+                my skills .
+              </StyledBody3>
+              <div>
+                <StyledButton2
+                  href={
+                    process.env.PUBLIC_URL +
+                    "assests/pdf/Trivedh Kumar Resume.pdf"
+                  }
+                  download="Trived Kumar Jajala Resume"
+                >
+                  DOWNLOAD MY RESUME
+                </StyledButton2>
+              </div>
+            </StyledContent>
+          </div>
+        </Section>
+      </animated.div>
       <Section
         id="portfolio"
         bgurl={"https://i1.faceprep.in/ProGrad/portfolio-background.svg"}

@@ -3,17 +3,23 @@ import styled from "styled-components";
 import { device, StyledButton2, StyledHeading3, Theme } from "../utils/theme";
 import { useEffect, useState } from "react";
 const { spacing, colors } = Theme;
-const StyledHeader = styled.div`
+const StyledHeader = styled.div(
+  ({ bgColor }: { bgColor?: string }) => `
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: ${spacing.r}px;
+  position: sticky;
+  top: 0;
+  background-color:${bgColor};
   @media ${device.tablet} {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
   }
-`;
+`
+);
 const StyledMenu = styled.div`
   display: flex;
   align-items: center;
@@ -54,7 +60,7 @@ const Header = () => {
       anchorTarget.scrollIntoView({ behavior: "smooth", block: "start" });
   };
   return (
-    <StyledHeader>
+    <StyledHeader bgColor={colors.jbg}>
       <StyledProgradHeader>
         <StyledHeading3 color={colors.sf60}>Prograd</StyledHeading3>
       </StyledProgradHeader>
