@@ -24,6 +24,14 @@ export const projectsData: GitHubProjects = [
     repoLink:
       "https://github.com/Trivedhkumar/py-bs4-webscraping-heliostore.git",
   },
+  {
+    id: 4,
+    name: "Web Scarping of a website",
+    description:
+      "A python project to scarpe the watches data on a paticular site.",
+    repoLink:
+      "https://github.com/Trivedhkumar/py-bs4-webscraping-heliostore.git",
+  },
 ];
 export const skills: Skills = [
   {

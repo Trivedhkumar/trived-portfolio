@@ -18,7 +18,7 @@ const Section = ({
   children?: React.ReactNode;
   color?: string;
   bgurl?: string;
-  id: string;
+  id?: string;
 }) => {
   return (
     <StyledSection id={id} bgurl={bgurl} color={color}>

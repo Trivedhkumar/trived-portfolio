@@ -5,7 +5,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./molecules/Header";
 import { Theme } from "./utils/theme";
 import "./App.css";
-import HomePage from "./screens/HomePage/HomePage";
+import HomePage from "./screens/HomePage";
+import Blogs from "./screens/Blogs";
+import Projects from "./screens/Projects";
+import Footer from "./molecules/Footer";
 
 const { colors } = Theme;
 const StyledBody = styled.div`
@@ -28,7 +31,10 @@ function App() {
         </animated.div>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/projects" element={<Projects />} />
         </Routes>
+        <Footer />
       </StyledBody>
     </Router>
   );

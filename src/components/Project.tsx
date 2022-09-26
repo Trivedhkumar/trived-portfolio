@@ -1,5 +1,10 @@
 import styled from "styled-components";
-import { StyledBody3, StyledButton3, Theme } from "../utils/theme";
+import {
+  StyledBody3,
+  StyledButton2,
+  StyledButton3,
+  Theme,
+} from "../utils/theme";
 import { GitHubProject } from "../types";
 const { colors, spacing } = Theme;
 const StyledProject = styled.div(
@@ -36,11 +41,17 @@ const Project = ({ project }: { project: GitHubProject }) => {
         {project.name}
       </StyledButton3>
       <StyledBody3>{project.description}</StyledBody3>
-      <div style={{ display: "flex", flexWrap: "wrap", marginTop: spacing.r }}>
-        <StyledButton3 target={"_blank"} href={project.repoLink}>
-          Click here &nbsp;
-        </StyledButton3>
-        <StyledBody3>to view {project.name}</StyledBody3>
+      <div style={{ display: "flex", marginTop: spacing.r }}>
+        <StyledButton2
+          margin={`0 ${spacing.s1}px`}
+          target={"_blank"}
+          href={project.repoLink}
+        >
+          Repo Code
+        </StyledButton2>
+        {project.projectLink && (
+          <StyledButton2 href={project.projectLink}>Live Project</StyledButton2>
+        )}
       </div>
     </StyledProject>
   );

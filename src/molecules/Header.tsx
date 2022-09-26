@@ -1,7 +1,14 @@
 import MenuItem from "../components/MenuItem";
 import styled from "styled-components";
-import { device, StyledButton2, StyledHeading3, Theme } from "../utils/theme";
+import {
+  device,
+  StyledButton2,
+  StyledButton3,
+  StyledHeading3,
+  Theme,
+} from "../utils/theme";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 const { spacing, colors } = Theme;
 const StyledHeader = styled.div(
   ({ bgColor }: { bgColor?: string }) => `
@@ -65,12 +72,28 @@ const Header = () => {
         <StyledHeading3 color={colors.sf60}>Web Developer</StyledHeading3>
       </StyledProgradHeader>
       <StyledMenu>
-        {["HOME", "BIO", "PORTFOLIO", "SKILLS"].map((el, i) => (
+        {/* Commented as scrolling to section is not working */}
+        {/* {["HOME", "BIO", "PORTFOLIO", "SKILLS"].map((el, i) => (
           <MenuItem id={el.toLowerCase()} key={i} itemName={el} />
-        ))}
-        <StyledButton2 id="#contact" onClick={handleClick}>
+        ))} */}
+        {/* <StyledButton2 id="#contact" onClick={handleClick}>
           CONTACT
-        </StyledButton2>
+        </StyledButton2> */}
+        <Link to={"/"}>
+          <StyledButton3 responsiveMargin={`${spacing.r}px auto`}>
+            HOME
+          </StyledButton3>
+        </Link>
+        <Link to={"/projects"}>
+          <StyledButton3 responsiveMargin={`${spacing.r}px auto`}>
+            PROJECTS
+          </StyledButton3>
+        </Link>
+        <Link to={"/blogs"}>
+          <StyledButton3 responsiveMargin={`${spacing.r}px auto`}>
+            BLOGS
+          </StyledButton3>
+        </Link>
       </StyledMenu>
     </StyledHeader>
   );

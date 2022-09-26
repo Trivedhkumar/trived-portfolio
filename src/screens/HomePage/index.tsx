@@ -53,6 +53,7 @@ display:flex;
 width:100%;
 justify-content:space-evenly;
 align-items:center;
+flex-wrap:wrap;
 @media ${device.tablet} {
   display: flex;
   flex-direction: column;
@@ -181,7 +182,7 @@ const HomePage = () => {
           </StyledBody2>
           <StyledLine></StyledLine>
           <StyledProjects>
-            {projectsData.map((project) => (
+            {projectsData.slice(0, 3).map((project) => (
               <Project key={project.id} project={project} />
             ))}
           </StyledProjects>
