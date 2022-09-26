@@ -62,7 +62,7 @@ const Header = () => {
   return (
     <StyledHeader bgColor={colors.jbg}>
       <StyledProgradHeader>
-        <StyledHeading3 color={colors.sf60}>Prograd</StyledHeading3>
+        <StyledHeading3 color={colors.sf60}>Web Developer</StyledHeading3>
       </StyledProgradHeader>
       <StyledMenu>
         {["HOME", "BIO", "PORTFOLIO", "SKILLS"].map((el, i) => (
