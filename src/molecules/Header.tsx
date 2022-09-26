@@ -1,7 +1,7 @@
 // import MenuItem from "../components/MenuItem";
 import styled from "styled-components";
 import { device, StyledButton3, StyledHeading3, Theme } from "../utils/theme";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 const { spacing, colors } = Theme;
 const StyledHeader = styled.div(
@@ -42,15 +42,15 @@ const Header = () => {
    * We do not set it here, preferring to wait for after the component
    * is mounted to avoid any errors
    */
-  const [anchorTarget, setAnchorTarget] = useState<HTMLElement | null>(null);
+  // const [anchorTarget, setAnchorTarget] = useState<HTMLElement | null>(null);
 
   /*
    * When the component mounts and/or updates, set our AnchorTarget based
    * on the itemName
    */
-  useEffect(() => {
-    setAnchorTarget(document.getElementById("contact"));
-  }, []);
+  // useEffect(() => {
+  //   setAnchorTarget(document.getElementById("contact"));
+  // }, []);
 
   /*
    * Where all the magic happens -- scrollIntoView on click
