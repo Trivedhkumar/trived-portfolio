@@ -1,12 +1,6 @@
-import MenuItem from "../components/MenuItem";
+// import MenuItem from "../components/MenuItem";
 import styled from "styled-components";
-import {
-  device,
-  StyledButton2,
-  StyledButton3,
-  StyledHeading3,
-  Theme,
-} from "../utils/theme";
+import { device, StyledButton3, StyledHeading3, Theme } from "../utils/theme";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 const { spacing, colors } = Theme;
@@ -61,11 +55,11 @@ const Header = () => {
   /*
    * Where all the magic happens -- scrollIntoView on click
    */
-  const handleClick = (event: any) => {
-    event.preventDefault();
-    anchorTarget &&
-      anchorTarget.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  // const handleClick = (event: any) => {
+  //   event.preventDefault();
+  //   anchorTarget &&
+  //     anchorTarget.scrollIntoView({ behavior: "smooth", block: "start" });
+  // };
   return (
     <StyledHeader bgColor={colors.jbg}>
       <StyledProgradHeader>
