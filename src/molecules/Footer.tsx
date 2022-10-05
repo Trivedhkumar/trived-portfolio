@@ -1,10 +1,10 @@
 import { StyledButton3, StyledHeading3 } from "../utils/theme";
-
+import "../App.css";
 const Footer = () => {
   return (
     <div
       style={{
-        marginTop: "10px",
+        marginTop: "32px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",

@@ -27,6 +27,7 @@
 }
 .footer {
   flex-direction: column;
+  margin-top: 64px;
 }
 a,
 a:hover,
@@ -34,6 +35,15 @@ a:focus,
 a:active {
   text-decoration: none;
   color: inherit;
+}
+.blog-card {
+  max-width: 600px;
+  text-align: center;
+  margin: auto;
+  padding: 32px;
+  background-color: azure;
+  border: 1px solid azure;
+  border-radius: 6px;
 }
 @media screen and (max-width: 768px) {
   .section {
