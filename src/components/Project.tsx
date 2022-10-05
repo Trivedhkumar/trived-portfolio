@@ -47,10 +47,12 @@ const Project = ({ project }: { project: GitHubProject }) => {
           target={"_blank"}
           href={project.repoLink}
         >
-          Repo Code
+          Repo
         </StyledButton2>
         {project.projectLink && (
-          <StyledButton2 href={project.projectLink}>Live Project</StyledButton2>
+          <StyledButton2 target={"_blank"} href={project.projectLink}>
+            Live
+          </StyledButton2>
         )}
       </div>
     </StyledProject>

@@ -20,6 +20,7 @@ import Project from "../../components/Project";
 import SkillBar from "../../components/SkillBar";
 import { langugues, projectsData, skills } from "../../utils/Data";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 const { spacing, colors } = Theme;
 const StyledImage = styled.img`
@@ -186,6 +187,11 @@ const HomePage = () => {
               <Project key={project.id} project={project} />
             ))}
           </StyledProjects>
+          <div style={{ textAlign: "center", marginTop: "12px" }}>
+            <Link to={"/projects"}>
+              <StyledButton2>See All Projects</StyledButton2>
+            </Link>
+          </div>
         </div>
       </Section>
       <Section id="skills">
